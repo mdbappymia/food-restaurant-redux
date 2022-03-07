@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/mealdb-redux/static/css/main.d66243e7.css",
+    "main.js": "/mealdb-redux/static/js/main.d75398b5.js",
+    "index.html": "/mealdb-redux/index.html",
+    "main.d66243e7.css.map": "/mealdb-redux/static/css/main.d66243e7.css.map",
+    "main.d75398b5.js.map": "/mealdb-redux/static/js/main.d75398b5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d66243e7.css",
+    "static/js/main.d75398b5.js"
+  ]
+}
