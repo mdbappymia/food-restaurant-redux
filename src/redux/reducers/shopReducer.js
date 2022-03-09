@@ -35,7 +35,6 @@ const shopReducer = (state = initialState, action) => {
       for (let item of state.cartMeal) {
         if (item.idMeal === action.payload) {
           item.item++;
-          item.price = 10 * item.item;
         }
         newCartAfterIncreseItem.push(item);
       }
@@ -57,7 +56,6 @@ const shopReducer = (state = initialState, action) => {
             };
           }
           item.item--;
-          item.price = 10 * item.item;
         }
         newCartAfterIncreseItem.push(item);
       }

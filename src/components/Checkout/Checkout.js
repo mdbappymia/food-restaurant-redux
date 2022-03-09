@@ -1,9 +1,16 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
+import ReactToPrint, { useReactToPrint } from "react-to-print";
+import { calculate } from "../../shareFunctions/calculate";
+import { ComponentToPrint } from "../ComponentToPrint/ComponentToPrint";
 
 const Checkout = () => {
   const { register, handleSubmit } = useForm();
   const [paymentMethod, setPaymentMethod] = useState("");
+  const [orderData, setOrderData] = useState([]);
+  const cart = useSelector((state) => state.shop.cartMeal);
+
   const onSubmit = (data) => {
     if (paymentMethod === "rocket") {
       data.bkashNum = "";
@@ -11,10 +18,18 @@ const Checkout = () => {
     if (paymentMethod === "bkash") {
       data.rocketNum = "";
     }
+    setOrderData(data);
     console.log(data);
+    if (calculate(cart) > 0) {
+      handlePrint();
+    }
   };
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
   return (
-    <div className="container m-auto ">
+    <div className="container m-auto min-h-screen">
       <div>
         <h1 className="text-4xl text-center font-bold uppercase my-3 py-3 bg-gray-200 ">
           Fill This form
@@ -59,27 +74,51 @@ const Checkout = () => {
           />
           <select
             onChange={(e) => setPaymentMethod(e.target.value)}
-            className="mb-3"
+            className="mb-3 lg:w-1/3 text-2xl rounded-lg p-3"
           >
             <option value="">Select payment method</option>
             <option value="rocket">Rocket</option>
             <option value="bkash">Bkash</option>
           </select>
           {paymentMethod === "rocket" && (
-            <input
-              className="w-full text-xl p-2 rounded mb-3"
-              {...register("rocketNum")}
-              placeholder="Rocket Number"
-              type="number"
-            />
+            <div className=" flex">
+              <input
+                className="w-full text-xl p-2 rounded mb-3"
+                {...register("rocketNum")}
+                placeholder="Rocket Number"
+                type="number"
+              />
+              <input
+                disabled
+                className="text-white bg-black text-xl p-2 rounded mb-3 ml-3"
+                type="text"
+                defaultValue={
+                  "$" + calculate(cart) + " = " + calculate(cart) * 85 + "TK"
+                }
+                name=""
+                id=""
+              />
+            </div>
           )}
           {paymentMethod === "bkash" && (
-            <input
-              className="w-full text-xl p-2 rounded mb-3"
-              {...register("bkashNum")}
-              placeholder="Bkash Number"
-              type="number"
-            />
+            <div className="flex">
+              <input
+                className="w-full text-xl p-2 rounded mb-3"
+                {...register("bkashNum")}
+                placeholder="Bkash Number"
+                type="number"
+              />
+              <input
+                disabled
+                className="text-white bg-black text-xl p-2 rounded mb-3 ml-3"
+                type="text"
+                defaultValue={
+                  "$" + calculate(cart) + " = " + calculate(cart) * 85 + "TK"
+                }
+                name=""
+                id=""
+              />
+            </div>
           )}
           <br />
           <input
@@ -87,6 +126,12 @@ const Checkout = () => {
             type="submit"
           />
         </form>
+      </div>
+      <div>
+        <ReactToPrint content={() => componentRef.current} />
+        <div className=" hidden">
+          <ComponentToPrint orderData={orderData} ref={componentRef} />
+        </div>
       </div>
     </div>
   );

@@ -15,7 +15,7 @@ const SingleCartItem = ({ cartItem }) => {
       <div className="ml-4">
         <div>
           <h1>{cartItem.strMeal}</h1>
-          <p>Price: &#36;{price}</p>
+          <p>Price: &#36;{price * item}</p>
           <p>Order Item: {item}</p>
           <div>
             <button

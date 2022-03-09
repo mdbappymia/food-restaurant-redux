@@ -7,12 +7,11 @@ const Shop = () => {
   const dispatch = useDispatch();
   const meals = useSelector((state) => state.shop.meals);
   const searchText = useSelector((state) => state.shop.searchText);
-  console.log(searchText);
   useEffect(() => {
     dispatch(fetchShopData(searchText));
   }, [dispatch, searchText]);
   return (
-    <div className=" container m-auto">
+    <div className=" container m-auto min-h-screen">
       <h1 className=" text-center text-4xl font-bold bg-gray-200 hover:bg-gray-400 my-5 py-3 uppercase">
         Meals
       </h1>

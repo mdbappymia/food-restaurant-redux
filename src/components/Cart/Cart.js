@@ -8,7 +8,7 @@ const Cart = () => {
   const cart = useSelector((state) => state.shop.cartMeal);
 
   return (
-    <div className="container m-auto flex justify-between">
+    <div className="container m-auto flex justify-between min-h-screen">
       <div className=" h-36 p-10  bg-white my-3 py-3">
         <h1 className="text-center font-bold text-4xl">
           Total Price: &#36;{calculate(cart)}
