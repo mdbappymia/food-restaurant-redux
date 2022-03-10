@@ -22,14 +22,16 @@ const Meal = ({ meal }) => {
     <>
       <div
         onClick={() => setShowModal(true)}
-        className="bg-white m-2 p-4 rounded-md meal-card hover:bg-gray-100 cursor-pointer"
+        className="bg-white m-2 p-4 rounded-md meal-card hover:bg-gray-100 cursor-pointer hover:shadow-lg"
         title="Click to show"
       >
-        <img
-          className=" h-72 w-full meal-card-image rounded-2xl"
-          src={strMealThumb}
-          alt=""
-        />
+        <div className=" overflow-hidden rounded-2xl">
+          <img
+            className=" h-72 w-full meal-card-image "
+            src={strMealThumb}
+            alt=""
+          />
+        </div>
         <div className=" flex justify-between py-4">
           <h1 className=" text-2xl font-bold">{strMeal}</h1>
           <h1 className="text-red-600 font-bold text-xl">&#36;{price}</h1>
@@ -40,7 +42,7 @@ const Meal = ({ meal }) => {
         <div className="text-center my-4">
           {cartItem.find((item) => item.idMeal === idMeal) ? (
             <Link to="/cart#">
-              <button className="hover:text-white font-bold uppercase px-3 py-2 hover:text-blue-700 disabled:bg-gray-400">
+              <button className="font-bold uppercase px-3 py-2 hover:text-blue-700 disabled:bg-gray-400">
                 View Cart --&gt;
               </button>
             </Link>

@@ -1,0 +1,15 @@
+.food-item {
+  position: relative;
+}
+.view-button {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  display: none;
+}
+.food-item:hover .view-button {
+  background-color: rgba(102, 51, 153, 0.376);
+  display: flex;
+  box-shadow: 5px 5px 25px black;
+}

@@ -8,9 +8,9 @@ export const ComponentToPrint = React.forwardRef(({ orderData }, ref) => {
     orderData;
   const cart = useSelector((state) => state.shop.cartMeal);
   return (
-    <div ref={ref}>
-      <h1>Name:{firstName + " " + lastName}</h1>
-      <h1>Total payment: {calculate(cart)}</h1>
+    <div ref={ref} className="p-10 bg-gray-100">
+      <h1 className="text-3xl">Name:{firstName + " " + lastName}</h1>
+      <h1>Total payment: {calculate(cart) * 85} TK</h1>
       <h1>Phone Number:{phone}</h1>
       <h1>Address: {address}</h1>
       {bkashNum && (

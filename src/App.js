@@ -5,13 +5,15 @@ import Header from "./components/Header/Header";
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
 import Footer from "./components/Footer/Footer";
+import Home from "./components/Home/Home";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Shop />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/shop" element={<Shop />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />
       </Routes>

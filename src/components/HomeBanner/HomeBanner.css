@@ -1,0 +1,14 @@
+.home-banner {
+  background-image: url(https://previews.123rf.com/images/hellolenalapina/hellolenalapina2007/hellolenalapina200700021/150748526-hand-holding-phone-and-variety-of-food-elements-online-food-shopping-banner-local-market-and-grocery.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.overlay {
+  background-color: rgba(0, 0, 0, 0.829);
+}
+.banner-left-img {
+  height: 200px;
+  width: 300px;
+}

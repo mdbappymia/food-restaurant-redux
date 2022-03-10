@@ -41,13 +41,13 @@ const Checkout = () => {
           <div className="flex">
             <input
               required
-              className="w-full text-xl p-2 rounded mb-3 mr-3"
+              className="w-full text-xl p-2 rounded mb-3 mr-3 border"
               {...register("firstName")}
               placeholder="First name"
             />
             <input
               required
-              className="w-full text-xl p-2 rounded mb-3"
+              className="w-full text-xl p-2 rounded mb-3 border"
               {...register("lastName")}
               placeholder="Last name"
             />
@@ -55,26 +55,26 @@ const Checkout = () => {
           <input
             required
             type="email"
-            className="w-full text-xl p-2 rounded mb-3"
+            className="w-full text-xl p-2 rounded mb-3 border"
             {...register("email")}
             placeholder="example@email.com"
           />
           <input
             required
-            className="w-full text-xl p-2 rounded mb-3"
+            className="w-full text-xl p-2 rounded mb-3 border"
             {...register("address")}
             placeholder="Address"
           />
           <input
             required
-            className="w-full text-xl p-2 rounded mb-3"
+            className="w-full text-xl p-2 rounded mb-3 border"
             {...register("phone")}
             placeholder="Phone Number"
             type="number"
           />
           <select
             onChange={(e) => setPaymentMethod(e.target.value)}
-            className="mb-3 lg:w-1/3 text-2xl rounded-lg p-3"
+            className="mb-3 lg:w-1/3 text-2xl rounded-lg p-3 border"
           >
             <option value="">Select payment method</option>
             <option value="rocket">Rocket</option>
@@ -83,14 +83,14 @@ const Checkout = () => {
           {paymentMethod === "rocket" && (
             <div className=" flex">
               <input
-                className="w-full text-xl p-2 rounded mb-3"
+                className="w-full text-xl p-2 rounded mb-3 border"
                 {...register("rocketNum")}
                 placeholder="Rocket Number"
                 type="number"
               />
               <input
                 disabled
-                className="text-white bg-black text-xl p-2 rounded mb-3 ml-3"
+                className="text-white bg-black text-xl p-2 rounded mb-3 ml-3 border"
                 type="text"
                 defaultValue={
                   "$" + calculate(cart) + " = " + calculate(cart) * 85 + "TK"
@@ -103,14 +103,14 @@ const Checkout = () => {
           {paymentMethod === "bkash" && (
             <div className="flex">
               <input
-                className="w-full text-xl p-2 rounded mb-3"
+                className="w-full text-xl p-2 rounded mb-3 border"
                 {...register("bkashNum")}
                 placeholder="Bkash Number"
                 type="number"
               />
               <input
                 disabled
-                className="text-white bg-black text-xl p-2 rounded mb-3 ml-3"
+                className="text-white bg-black text-xl p-2 rounded mb-3 ml-3 border"
                 type="text"
                 defaultValue={
                   "$" + calculate(cart) + " = " + calculate(cart) * 85 + "TK"

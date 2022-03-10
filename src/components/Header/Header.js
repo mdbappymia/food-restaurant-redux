@@ -39,6 +39,12 @@ const Header = () => {
           >
             Home
           </Link>
+          <Link
+            className="text-xl inline-block mx-2 active:bg-green-500"
+            to="/shop"
+          >
+            Shop
+          </Link>
           <Link className="text-xl inline-block mx-2" to="/about">
             About
           </Link>

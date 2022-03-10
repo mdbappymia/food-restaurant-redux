@@ -2,6 +2,9 @@ const initialState = {
   meals: [],
   cartMeal: [],
   searchText: "",
+  categories: [],
+  categoryName: "beef",
+  categoryFoods: [],
 };
 const shopReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -69,6 +72,24 @@ const shopReducer = (state = initialState, action) => {
       return {
         ...state,
         searchText: action.payload,
+      };
+    }
+    case "GET_ALL_CATEGORY": {
+      return {
+        ...state,
+        categories: action.payload,
+      };
+    }
+    case "SET_CATEGORY_NAME": {
+      return {
+        ...state,
+        categoryName: action.payload,
+      };
+    }
+    case "GET_FOODS_BY_CATEGORY": {
+      return {
+        ...state,
+        categoryFoods: action.payload,
       };
     }
     default: {
