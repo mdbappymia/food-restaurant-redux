@@ -14,8 +14,8 @@ const ShopByCategory = () => {
     dispatch(fetchAllCategory());
   }, [dispatch]);
   return (
-    <div className="py-10">
-      <h1 className="text-5xl text-center">Shop by category</h1>
+    <div className="py-10 container mx-auto">
+      <h1 className="text-4xl text-center">Shop by category</h1>
       <div className="container m-auto">
         <div className=" flex justify-center">
           <select

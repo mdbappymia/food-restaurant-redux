@@ -18,19 +18,19 @@ const CategoryFoods = () => {
   const category = useSelector((state) => state.shop.categoryName);
   const categoryFoods = useSelector((state) => state.shop.categoryFoods);
   const [mealId, setMealId] = useState("");
-  console.log(categoryFoods);
+
   useEffect(() => {
     dispatch(fetchFoodsByCategory(category));
   }, [dispatch, category]);
-  console.log(mealId);
+
   return (
-    <div>
+    <div className="mx-3">
       {categoryFoods.length > 0 && (
         <CarouselProvider
           naturalSlideWidth={80}
-          naturalSlideHeight={100}
+          naturalSlideHeight={110}
           totalSlides={categoryFoods.length}
-          visibleSlides={5}
+          visibleSlides={window.innerWidth <= 667 ? 2 : 4}
           infinite={true}
         >
           <Slider>
@@ -43,7 +43,7 @@ const CategoryFoods = () => {
                       src={food.strMealThumb}
                       alt=""
                     />
-                    <h1 className="ml-3">Name: {food.strMeal.slice(0, 20)}</h1>
+                    <h1 className="ml-3">{food.strMeal.slice(0, 20)}</h1>
                     <div className="view-button justify-center items-center">
                       <button
                         onClick={() => {

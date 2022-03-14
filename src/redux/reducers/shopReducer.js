@@ -1,6 +1,6 @@
 const initialState = {
   meals: [],
-  cartMeal: [],
+  cartMeal: JSON.parse(localStorage.getItem("cart")) || [],
   searchText: "",
   categories: [],
   categoryName: "beef",
@@ -20,12 +20,22 @@ const shopReducer = (state = initialState, action) => {
       ) {
         return state;
       }
+      localStorage.setItem(
+        "cart",
+        JSON.stringify([...state.cartMeal, action.payload])
+      );
       return {
         ...state,
         cartMeal: [...state.cartMeal, action.payload],
       };
     }
     case "REMOVE_TO_CART": {
+      localStorage.setItem(
+        "cart",
+        JSON.stringify([
+          ...state.cartMeal.filter((item) => item.idMeal !== action.payload),
+        ])
+      );
       return {
         ...state,
         cartMeal: state.cartMeal.filter(
@@ -41,13 +51,17 @@ const shopReducer = (state = initialState, action) => {
         }
         newCartAfterIncreseItem.push(item);
       }
+      localStorage.setItem(
+        "cart",
+        JSON.stringify([...newCartAfterIncreseItem])
+      );
       return {
         ...state,
         cartMeal: newCartAfterIncreseItem,
       };
     }
     case "ITEM_DECREASE": {
-      const newCartAfterIncreseItem = [];
+      const newCartAfterDecreseItem = [];
       for (let item of state.cartMeal) {
         if (item.idMeal === action.payload) {
           if (item.item === 1) {
@@ -60,12 +74,15 @@ const shopReducer = (state = initialState, action) => {
           }
           item.item--;
         }
-        newCartAfterIncreseItem.push(item);
+        newCartAfterDecreseItem.push(item);
       }
-
+      localStorage.setItem(
+        "cart",
+        JSON.stringify([...newCartAfterDecreseItem])
+      );
       return {
         ...state,
-        cartMeal: newCartAfterIncreseItem,
+        cartMeal: newCartAfterDecreseItem,
       };
     }
     case "SET_SEARCH_TEXT": {

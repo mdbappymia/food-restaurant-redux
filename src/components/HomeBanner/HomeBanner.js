@@ -5,9 +5,9 @@ const HomeBanner = () => {
   return (
     <div className="home-banner">
       <div className="overlay">
-        <div className="w-1/2 m-auto flex items-center h-80">
+        <div className="lg:w-1/2 m-auto block py-5 lg:flex items-center lg:h-80">
           <div className="left">
-            <div className="overflow-hidden banner-left-img">
+            <div className="overflow-hidden banner-left-img ml-4">
               <img
                 className="h-full w-full hover:scale-105 transition-all"
                 src="https://www.upmenu.com/blog/wp-content/uploads/2021/01/food-delivery-apps.jpg"

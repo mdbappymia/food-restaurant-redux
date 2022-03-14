@@ -10,7 +10,9 @@ const Checkout = () => {
   const [paymentMethod, setPaymentMethod] = useState("");
   const [orderData, setOrderData] = useState([]);
   const cart = useSelector((state) => state.shop.cartMeal);
+  const user = useSelector((state) => state.userData.user);
 
+  console.log(user);
   const onSubmit = (data) => {
     if (paymentMethod === "rocket") {
       data.bkashNum = "";
@@ -57,6 +59,7 @@ const Checkout = () => {
             type="email"
             className="w-full text-xl p-2 rounded mb-3 border"
             {...register("email")}
+            defaultValue={user.email}
             placeholder="example@email.com"
           />
           <input

@@ -4,8 +4,8 @@ const LetShopUs = () => {
   return (
     <div>
       <h1 className="text-center text-5xl my-5 py-5">Let's shop with us</h1>
-      <div className="card-container container m-auto grid grid-cols-3 py-5">
-        <div className="border-2 rounded-lg text-center mx-20 p-10 hover:shadow-2xl">
+      <div className="card-container container m-auto md:grid grid-cols-3 py-5">
+        <div className="border-2 rounded-lg text-center m-3 lg:mx-20 p-10 hover:shadow-2xl">
           <div className=" text-7xl text-red-500">
             <i className="fas fa-utensils"></i>
           </div>
@@ -17,7 +17,7 @@ const LetShopUs = () => {
             magni eligendi.
           </p>
         </div>
-        <div className="border-2 rounded-lg text-center mx-20 p-10 hover:shadow-2xl">
+        <div className="border-2 rounded-lg text-center m-3 lg:mx-20 p-10 hover:shadow-2xl">
           <div className=" text-7xl text-red-500">
             <i className="fas fa-utensils"></i>
           </div>
@@ -29,7 +29,7 @@ const LetShopUs = () => {
             magni eligendi.
           </p>
         </div>
-        <div className="border-2 rounded-lg text-center mx-20 p-10 hover:shadow-2xl">
+        <div className="border-2 rounded-lg text-center m-3 lg:mx-20 p-10 hover:shadow-2xl">
           <div className=" text-7xl text-red-500">
             <i className="fas fa-utensils"></i>
           </div>

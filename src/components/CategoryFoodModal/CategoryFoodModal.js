@@ -6,7 +6,7 @@ import { addMealToCart } from "../../redux/actions/shopAction";
 const CategoryFoodModal = ({ setShowModal, showModal, mealId }) => {
   const dispatch = useDispatch();
   const cartItem = useSelector((state) => state.shop.cartMeal);
-  const [meal, setMeal] = useState([{}]);
+  const [meal, setMeal] = useState({});
   const {
     idMeal,
     strMeal,
@@ -15,15 +15,18 @@ const CategoryFoodModal = ({ setShowModal, showModal, mealId }) => {
     strInstructions,
     strMealThumb,
     price = 10,
-  } = meal[0];
+  } = meal;
 
   useEffect(() => {
-    setMeal([{}]);
-    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealId}`)
+    setMeal({});
+    fetch(
+      `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${
+        mealId || "52772"
+      }`
+    )
       .then((res) => res.json())
       .then((data) => {
-        setMeal(data.meals);
-        console.log(data);
+        setMeal(data.meals[0]);
       });
   }, [mealId]);
   return (
@@ -34,9 +37,11 @@ const CategoryFoodModal = ({ setShowModal, showModal, mealId }) => {
             <div className="relative w-auto my-6 mx-auto max-w-3xl">
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {!strMeal ? (
-                  <h1 className="w-auto text-9xl m-5 p-10">Loading</h1>
+                  <h1 className="w-auto text-5xl lg:text-9xl m-5 p-10">
+                    Loading
+                  </h1>
                 ) : (
-                  <div className="grid grid-cols-2 p-5">
+                  <div className="grid lg:grid-cols-2 p-5">
                     <div className="laft">
                       <div
                         id="carouselExampleCaptions"
