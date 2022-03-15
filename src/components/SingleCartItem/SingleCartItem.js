@@ -10,8 +10,8 @@ const SingleCartItem = ({ cartItem }) => {
   const dispatch = useDispatch();
   const { idMeal, strMealThumb, price = 10, item } = cartItem;
   return (
-    <div className="flex m-3 border rounded-md relative bg-white">
-      <img className=" w-40 h-40" src={strMealThumb} alt="" />
+    <div className="lg:flex block m-3 border rounded-md relative bg-white">
+      <img className="w-full lg:w-40 lg:h-40" src={strMealThumb} alt="" />
       <div className="ml-4">
         <div>
           <h1>{cartItem.strMeal}</h1>

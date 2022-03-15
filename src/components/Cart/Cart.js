@@ -19,7 +19,7 @@ const Cart = () => {
           </button>
         </Link>
       </div>
-      <div className="w-2/3">
+      <div className="lg:w-2/3">
         {cart.length <= 0 && (
           <Link to="/shop" className="flex lg:block justify-center">
             <p className="text-4xl my-5 bg-green-500 inline-block text-white px-3 py-2 rounded">
